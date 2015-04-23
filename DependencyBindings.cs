@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ninject.Modules;
+using TtoSConverter.LoginCustomer;
 
 namespace TtoSConverter
 {
@@ -18,6 +19,9 @@ namespace TtoSConverter
 				.ToConstant(restClient);
 			Bind<Ambitus.Soap.IApiClient>()
 				.ToConstant(soapClient);
+			Bind<ILoginOrCreateLoginHandler>()
+				.To<LoginOrCreateLoginHandler>()
+				.InSingletonScope();
 			Bind<ITasksProvider>()
 				.To<TaskProvider>()
 				.InSingletonScope();

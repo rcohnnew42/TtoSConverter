@@ -33,10 +33,19 @@ namespace TtoSConverter
 				{
 					//Get<DummyTask>(),
 					//Get<Dummy2Task>(),
-					Get<CustomersTask>(),
-					Get<CustomerAttributesTask>(),
-					Get<CustomerTagsTask>(),
-					Get<FundsTask>()
+					//Get<CustomersTask>(),
+					//Get<CustomerAttributesTask>(),
+					//Get<CustomerTagsTask>(),
+					//Get<FundsTask>(),
+					//Get<EventsTask>(),
+					//Get<OrdersTask>(),
+					//Get<DonationsTask>(),
+					//Get<SeatingAreaTask>(),
+					Get<SeatingTask>()
+					//Get<PriceBandsTask>(),
+					//Get<TicketsTask>(),
+					//Get<LockTypesTask>(),
+					//Get<InstancesTask>()
 				};
 			}
 			return tasks;

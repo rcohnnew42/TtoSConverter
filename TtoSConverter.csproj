@@ -66,6 +66,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConversionTasks\LockTypesTask.cs" />
+    <Compile Include="ConversionTasks\TicketsTask.cs" />
+    <Compile Include="ConversionTasks\PriceBandsTask.cs" />
+    <Compile Include="ConversionTasks\SeatingTask.cs" />
+    <Compile Include="ConversionTasks\SeatingAreaTask.cs" />
+    <Compile Include="ConversionTasks\DonationsTask.cs" />
+    <Compile Include="ConversionTasks\InstancesTask.cs" />
+    <Compile Include="ConversionTasks\EventsTask.cs" />
+    <Compile Include="ConversionTasks\OrdersTask.cs" />
     <Compile Include="ConversionTasks\FundsTask.cs" />
     <Compile Include="ConversionTasks\CustomerTagsTask.cs" />
     <Compile Include="ConversionTasks\CustomerAttributesTask.cs" />
@@ -75,6 +84,8 @@
     <Compile Include="ConversionTasks\IConversionTask.cs" />
     <Compile Include="DependencyBindings.cs" />
     <Compile Include="ITasksProvider.cs" />
+    <Compile Include="LoginCustomer\ILoginOrCreateLoginHandler.cs" />
+    <Compile Include="LoginCustomer\LoginOrCreateLoginHandler.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Models.cs" />
     <Compile Include="Program.cs" />
