@@ -1,0 +1,2381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IntermediatesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustomerAttributes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerDataProtection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StatementId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="30" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="80" />
+          <Property Name="OrganisationName" Type="nvarchar" MaxLength="80" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="60" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="60" />
+          <Property Name="AddressLine3" Type="nvarchar" MaxLength="60" />
+          <Property Name="AddressLine4" Type="nvarchar" MaxLength="60" />
+          <Property Name="AddressLine5" Type="nvarchar" MaxLength="60" />
+          <Property Name="PostTown" Type="nvarchar" MaxLength="60" />
+          <Property Name="County" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="LastUpdated" Type="datetime" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="30" />
+          <Property Name="DateOfBirth" Type="date" />
+        </EntityType>
+        <EntityType Name="CustomerTags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TagId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataProtectionStatements">
+          <Key>
+            <PropertyRef Name="StatementId" />
+          </Key>
+          <Property Name="StatementId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FundId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="OrderId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventAttributes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Duration" Type="smallint" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Funds">
+          <Key>
+            <PropertyRef Name="FundId" />
+          </Key>
+          <Property Name="FundId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstanceAttributes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstanceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Instances">
+          <Key>
+            <PropertyRef Name="InstanceId" />
+          </Key>
+          <Property Name="InstanceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EventId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Start" Type="datetime" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="SeatingPlanId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PriceListId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CommissionStructureId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TicketDesignId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LockedSeats">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstanceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeatingAreaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeatId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LockTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LockTypes">
+          <Key>
+            <PropertyRef Name="LockTypeId" />
+          </Key>
+          <Property Name="LockTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mailings">
+          <Key>
+            <PropertyRef Name="MailingId" />
+          </Key>
+          <Property Name="MailingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="SentAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MailingsCustomers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MailingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaskedSeats">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstanceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeatingAreaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeatId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Memberships">
+          <Key>
+            <PropertyRef Name="MembershipId" />
+          </Key>
+          <Property Name="MembershipId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Period" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MembershipSubscriptions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MembershipId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="ExpiryDate" Type="datetime" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Merchandise">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StockItemId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Commission" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="OrderId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderAttributes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerId" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="SalesChannel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Answer" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderFee" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="PaymentMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentReference" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PriceBands">
+          <Key>
+            <PropertyRef Name="PriceBandId" />
+          </Key>
+          <Property Name="PriceBandId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceListEntries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriceListId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="PriceBandId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TicketTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceLists">
+          <Key>
+            <PropertyRef Name="PriceListId" />
+          </Key>
+          <Property Name="PriceListId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DefaultTicketTypeId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Relationships">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeftCustomerId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RightCustomerId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SeatingAreas">
+          <Key>
+            <PropertyRef Name="SeatingAreaId" />
+            <PropertyRef Name="ParentAreaId" />
+          </Key>
+          <Property Name="SeatingAreaId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentAreaId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TopLevelAreaId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="PriceBandId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Seats">
+          <Key>
+            <PropertyRef Name="SeatId" />
+          </Key>
+          <Property Name="SeatId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeatingAreaId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Row" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number" Type="int" />
+          <Property Name="PriceBandId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CoordinatesX" Type="int" Nullable="false" />
+          <Property Name="CoordinatesY" Type="int" Nullable="false" />
+          <Property Name="ParentAreaId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockItemAttributes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StockItemId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockItems">
+          <Key>
+            <PropertyRef Name="StockItemId" />
+          </Key>
+          <Property Name="StockItemId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="NumberInStock" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="UnitCost" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstanceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SeatingAreaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeatId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Commission" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="IsReservation" Type="bit" Nullable="false" />
+          <Property Name="Printed" Type="bit" Nullable="false" />
+          <Property Name="TicketTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketTypes">
+          <Key>
+            <PropertyRef Name="TicketTypeId" />
+          </Key>
+          <Property Name="TicketTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CustomerAttributes_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CustomerAttributes" Type="Self.CustomerAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerAttributes">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerDataProtection_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CustomerDataProtection" Type="Self.CustomerDataProtection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerDataProtection">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerDataProtection_DataProtectionStatements">
+          <End Role="DataProtectionStatements" Type="Self.DataProtectionStatements" Multiplicity="1" />
+          <End Role="CustomerDataProtection" Type="Self.CustomerDataProtection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataProtectionStatements">
+              <PropertyRef Name="StatementId" />
+            </Principal>
+            <Dependent Role="CustomerDataProtection">
+              <PropertyRef Name="StatementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerTags_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CustomerTags" Type="Self.CustomerTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerTags">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerTags_Tags">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+          <End Role="CustomerTags" Type="Self.CustomerTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagId" />
+            </Principal>
+            <Dependent Role="CustomerTags">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donations_Funds">
+          <End Role="Funds" Type="Self.Funds" Multiplicity="1" />
+          <End Role="Donations" Type="Self.Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funds">
+              <PropertyRef Name="FundId" />
+            </Principal>
+            <Dependent Role="Donations">
+              <PropertyRef Name="FundId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donations_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Donations" Type="Self.Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Donations">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventAttributes_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="EventAttributes" Type="Self.EventAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="EventAttributes">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstanceAttributes_Instances">
+          <End Role="Instances" Type="Self.Instances" Multiplicity="1" />
+          <End Role="InstanceAttributes" Type="Self.InstanceAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instances">
+              <PropertyRef Name="InstanceId" />
+            </Principal>
+            <Dependent Role="InstanceAttributes">
+              <PropertyRef Name="InstanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instances_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="Instances" Type="Self.Instances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="Instances">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instances_PriceLists">
+          <End Role="PriceLists" Type="Self.PriceLists" Multiplicity="1" />
+          <End Role="Instances" Type="Self.Instances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceLists">
+              <PropertyRef Name="PriceListId" />
+            </Principal>
+            <Dependent Role="Instances">
+              <PropertyRef Name="PriceListId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LockedSeats_Instances">
+          <End Role="Instances" Type="Self.Instances" Multiplicity="1" />
+          <End Role="LockedSeats" Type="Self.LockedSeats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instances">
+              <PropertyRef Name="InstanceId" />
+            </Principal>
+            <Dependent Role="LockedSeats">
+              <PropertyRef Name="InstanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LockedSeats_LockTypes">
+          <End Role="LockTypes" Type="Self.LockTypes" Multiplicity="1" />
+          <End Role="LockedSeats" Type="Self.LockedSeats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LockTypes">
+              <PropertyRef Name="LockTypeId" />
+            </Principal>
+            <Dependent Role="LockedSeats">
+              <PropertyRef Name="LockTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LockedSeats_Seats">
+          <End Role="Seats" Type="Self.Seats" Multiplicity="0..1" />
+          <End Role="LockedSeats" Type="Self.LockedSeats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seats">
+              <PropertyRef Name="SeatId" />
+            </Principal>
+            <Dependent Role="LockedSeats">
+              <PropertyRef Name="SeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailingsCustomers_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="MailingsCustomers" Type="Self.MailingsCustomers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="MailingsCustomers">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailingsCustomers_Mailings">
+          <End Role="Mailings" Type="Self.Mailings" Multiplicity="1" />
+          <End Role="MailingsCustomers" Type="Self.MailingsCustomers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mailings">
+              <PropertyRef Name="MailingId" />
+            </Principal>
+            <Dependent Role="MailingsCustomers">
+              <PropertyRef Name="MailingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaskedSeats_Instances">
+          <End Role="Instances" Type="Self.Instances" Multiplicity="1" />
+          <End Role="MaskedSeats" Type="Self.MaskedSeats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instances">
+              <PropertyRef Name="InstanceId" />
+            </Principal>
+            <Dependent Role="MaskedSeats">
+              <PropertyRef Name="InstanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaskedSeats_Seats">
+          <End Role="Seats" Type="Self.Seats" Multiplicity="0..1" />
+          <End Role="MaskedSeats" Type="Self.MaskedSeats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seats">
+              <PropertyRef Name="SeatId" />
+            </Principal>
+            <Dependent Role="MaskedSeats">
+              <PropertyRef Name="SeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembershipSubscriptions_Memberships">
+          <End Role="Memberships" Type="Self.Memberships" Multiplicity="1" />
+          <End Role="MembershipSubscriptions" Type="Self.MembershipSubscriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Memberships">
+              <PropertyRef Name="MembershipId" />
+            </Principal>
+            <Dependent Role="MembershipSubscriptions">
+              <PropertyRef Name="MembershipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembershipSubscriptions_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="MembershipSubscriptions" Type="Self.MembershipSubscriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="MembershipSubscriptions">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Merchandise_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Merchandise" Type="Self.Merchandise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Merchandise">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Merchandise_StockItems">
+          <End Role="StockItems" Type="Self.StockItems" Multiplicity="1" />
+          <End Role="Merchandise" Type="Self.Merchandise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockItems">
+              <PropertyRef Name="StockItemId" />
+            </Principal>
+            <Dependent Role="Merchandise">
+              <PropertyRef Name="StockItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderAttributes_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderAttributes" Type="Self.OrderAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderAttributes">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PriceListEntries_PriceBands">
+          <End Role="PriceBands" Type="Self.PriceBands" Multiplicity="1" />
+          <End Role="PriceListEntries" Type="Self.PriceListEntries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceBands">
+              <PropertyRef Name="PriceBandId" />
+            </Principal>
+            <Dependent Role="PriceListEntries">
+              <PropertyRef Name="PriceBandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PriceListEntries_PriceLists">
+          <End Role="PriceLists" Type="Self.PriceLists" Multiplicity="1" />
+          <End Role="PriceListEntries" Type="Self.PriceListEntries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceLists">
+              <PropertyRef Name="PriceListId" />
+            </Principal>
+            <Dependent Role="PriceListEntries">
+              <PropertyRef Name="PriceListId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PriceListEntries_TicketTypes">
+          <End Role="TicketTypes" Type="Self.TicketTypes" Multiplicity="1" />
+          <End Role="PriceListEntries" Type="Self.PriceListEntries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketTypes">
+              <PropertyRef Name="TicketTypeId" />
+            </Principal>
+            <Dependent Role="PriceListEntries">
+              <PropertyRef Name="TicketTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationships_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Relationships" Type="Self.Relationships" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Relationships">
+              <PropertyRef Name="LeftCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationships_Customers1">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Relationships" Type="Self.Relationships" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Relationships">
+              <PropertyRef Name="RightCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeatingAreas_PriceBands">
+          <End Role="PriceBands" Type="Self.PriceBands" Multiplicity="0..1" />
+          <End Role="SeatingAreas" Type="Self.SeatingAreas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceBands">
+              <PropertyRef Name="PriceBandId" />
+            </Principal>
+            <Dependent Role="SeatingAreas">
+              <PropertyRef Name="PriceBandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seats_PriceBands">
+          <End Role="PriceBands" Type="Self.PriceBands" Multiplicity="1" />
+          <End Role="Seats" Type="Self.Seats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceBands">
+              <PropertyRef Name="PriceBandId" />
+            </Principal>
+            <Dependent Role="Seats">
+              <PropertyRef Name="PriceBandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockItemAttributes_StockItems">
+          <End Role="StockItems" Type="Self.StockItems" Multiplicity="1" />
+          <End Role="StockItemAttributes" Type="Self.StockItemAttributes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockItems">
+              <PropertyRef Name="StockItemId" />
+            </Principal>
+            <Dependent Role="StockItemAttributes">
+              <PropertyRef Name="StockItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Instances">
+          <End Role="Instances" Type="Self.Instances" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instances">
+              <PropertyRef Name="InstanceId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="InstanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Orders">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Seats">
+          <End Role="Seats" Type="Self.Seats" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seats">
+              <PropertyRef Name="SeatId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="SeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketTypes">
+          <End Role="TicketTypes" Type="Self.TicketTypes" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketTypes">
+              <PropertyRef Name="TicketTypeId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="TicketTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IntermediatesModelStoreContainer">
+          <EntitySet Name="CustomerAttributes" EntityType="Self.CustomerAttributes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerDataProtection" EntityType="Self.CustomerDataProtection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerTags" EntityType="Self.CustomerTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataProtectionStatements" EntityType="Self.DataProtectionStatements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donations" EntityType="Self.Donations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventAttributes" EntityType="Self.EventAttributes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Funds" EntityType="Self.Funds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstanceAttributes" EntityType="Self.InstanceAttributes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instances" EntityType="Self.Instances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LockedSeats" EntityType="Self.LockedSeats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LockTypes" EntityType="Self.LockTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mailings" EntityType="Self.Mailings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailingsCustomers" EntityType="Self.MailingsCustomers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaskedSeats" EntityType="Self.MaskedSeats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Memberships" EntityType="Self.Memberships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MembershipSubscriptions" EntityType="Self.MembershipSubscriptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Merchandise" EntityType="Self.Merchandise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderAttributes" EntityType="Self.OrderAttributes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceBands" EntityType="Self.PriceBands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceListEntries" EntityType="Self.PriceListEntries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceLists" EntityType="Self.PriceLists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Relationships" EntityType="Self.Relationships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeatingAreas" EntityType="Self.SeatingAreas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seats" EntityType="Self.Seats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockItemAttributes" EntityType="Self.StockItemAttributes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockItems" EntityType="Self.StockItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketTypes" EntityType="Self.TicketTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CustomerAttributes_Customers" Association="Self.FK_CustomerAttributes_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerAttributes" EntitySet="CustomerAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerDataProtection_Customers" Association="Self.FK_CustomerDataProtection_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerDataProtection" EntitySet="CustomerDataProtection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerDataProtection_DataProtectionStatements" Association="Self.FK_CustomerDataProtection_DataProtectionStatements">
+            <End Role="DataProtectionStatements" EntitySet="DataProtectionStatements" />
+            <End Role="CustomerDataProtection" EntitySet="CustomerDataProtection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerTags_Customers" Association="Self.FK_CustomerTags_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerTags" EntitySet="CustomerTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerTags_Tags" Association="Self.FK_CustomerTags_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="CustomerTags" EntitySet="CustomerTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donations_Funds" Association="Self.FK_Donations_Funds">
+            <End Role="Funds" EntitySet="Funds" />
+            <End Role="Donations" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donations_Orders" Association="Self.FK_Donations_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Donations" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventAttributes_Events" Association="Self.FK_EventAttributes_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventAttributes" EntitySet="EventAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstanceAttributes_Instances" Association="Self.FK_InstanceAttributes_Instances">
+            <End Role="Instances" EntitySet="Instances" />
+            <End Role="InstanceAttributes" EntitySet="InstanceAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instances_Events" Association="Self.FK_Instances_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="Instances" EntitySet="Instances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instances_PriceLists" Association="Self.FK_Instances_PriceLists">
+            <End Role="PriceLists" EntitySet="PriceLists" />
+            <End Role="Instances" EntitySet="Instances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LockedSeats_Instances" Association="Self.FK_LockedSeats_Instances">
+            <End Role="Instances" EntitySet="Instances" />
+            <End Role="LockedSeats" EntitySet="LockedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LockedSeats_LockTypes" Association="Self.FK_LockedSeats_LockTypes">
+            <End Role="LockTypes" EntitySet="LockTypes" />
+            <End Role="LockedSeats" EntitySet="LockedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LockedSeats_Seats" Association="Self.FK_LockedSeats_Seats">
+            <End Role="Seats" EntitySet="Seats" />
+            <End Role="LockedSeats" EntitySet="LockedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailingsCustomers_Customers" Association="Self.FK_MailingsCustomers_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="MailingsCustomers" EntitySet="MailingsCustomers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailingsCustomers_Mailings" Association="Self.FK_MailingsCustomers_Mailings">
+            <End Role="Mailings" EntitySet="Mailings" />
+            <End Role="MailingsCustomers" EntitySet="MailingsCustomers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaskedSeats_Instances" Association="Self.FK_MaskedSeats_Instances">
+            <End Role="Instances" EntitySet="Instances" />
+            <End Role="MaskedSeats" EntitySet="MaskedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaskedSeats_Seats" Association="Self.FK_MaskedSeats_Seats">
+            <End Role="Seats" EntitySet="Seats" />
+            <End Role="MaskedSeats" EntitySet="MaskedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembershipSubscriptions_Memberships" Association="Self.FK_MembershipSubscriptions_Memberships">
+            <End Role="Memberships" EntitySet="Memberships" />
+            <End Role="MembershipSubscriptions" EntitySet="MembershipSubscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembershipSubscriptions_Orders" Association="Self.FK_MembershipSubscriptions_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="MembershipSubscriptions" EntitySet="MembershipSubscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Merchandise_Orders" Association="Self.FK_Merchandise_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Merchandise" EntitySet="Merchandise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Merchandise_StockItems" Association="Self.FK_Merchandise_StockItems">
+            <End Role="StockItems" EntitySet="StockItems" />
+            <End Role="Merchandise" EntitySet="Merchandise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderAttributes_Orders" Association="Self.FK_OrderAttributes_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderAttributes" EntitySet="OrderAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PriceListEntries_PriceBands" Association="Self.FK_PriceListEntries_PriceBands">
+            <End Role="PriceBands" EntitySet="PriceBands" />
+            <End Role="PriceListEntries" EntitySet="PriceListEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PriceListEntries_PriceLists" Association="Self.FK_PriceListEntries_PriceLists">
+            <End Role="PriceLists" EntitySet="PriceLists" />
+            <End Role="PriceListEntries" EntitySet="PriceListEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PriceListEntries_TicketTypes" Association="Self.FK_PriceListEntries_TicketTypes">
+            <End Role="TicketTypes" EntitySet="TicketTypes" />
+            <End Role="PriceListEntries" EntitySet="PriceListEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationships_Customers" Association="Self.FK_Relationships_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Relationships" EntitySet="Relationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationships_Customers1" Association="Self.FK_Relationships_Customers1">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Relationships" EntitySet="Relationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeatingAreas_PriceBands" Association="Self.FK_SeatingAreas_PriceBands">
+            <End Role="PriceBands" EntitySet="PriceBands" />
+            <End Role="SeatingAreas" EntitySet="SeatingAreas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seats_PriceBands" Association="Self.FK_Seats_PriceBands">
+            <End Role="PriceBands" EntitySet="PriceBands" />
+            <End Role="Seats" EntitySet="Seats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockItemAttributes_StockItems" Association="Self.FK_StockItemAttributes_StockItems">
+            <End Role="StockItems" EntitySet="StockItems" />
+            <End Role="StockItemAttributes" EntitySet="StockItemAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Instances" Association="Self.FK_Tickets_Instances">
+            <End Role="Instances" EntitySet="Instances" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Orders" Association="Self.FK_Tickets_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Seats" Association="Self.FK_Tickets_Seats">
+            <End Role="Seats" EntitySet="Seats" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketTypes" Association="Self.FK_Tickets_TicketTypes">
+            <End Role="TicketTypes" EntitySet="TicketTypes" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IntermediatesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="OrganisationName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine4" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine5" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PostTown" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <Property Name="EmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CustomerAttributes" Relationship="Self.FK_CustomerAttributes_Customers" FromRole="Customers" ToRole="CustomerAttributes" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customers" FromRole="Customers" ToRole="Orders" />
+          <NavigationProperty Name="Relationships" Relationship="IntermediatesModel.FK_Relationships_Customers" FromRole="Customer" ToRole="Relationship" />
+          <NavigationProperty Name="Relationships1" Relationship="IntermediatesModel.FK_Relationships_Customers1" FromRole="Customer" ToRole="Relationship" />
+          <NavigationProperty Name="CustomerDataProtections" Relationship="IntermediatesModel.FK_CustomerDataProtection_Customers" FromRole="Customer" ToRole="CustomerDataProtection" />
+          <NavigationProperty Name="CustomerTags" Relationship="IntermediatesModel.FK_CustomerTags_Customers" FromRole="Customer" ToRole="CustomerTag" />
+          <NavigationProperty Name="MailingsCustomers" Relationship="IntermediatesModel.FK_MailingsCustomers_Customers" FromRole="Customer" ToRole="MailingsCustomer" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="Int16" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EventAttributes" Relationship="Self.FK_EventAttributes_Events" FromRole="Events" ToRole="EventAttributes" />
+          <NavigationProperty Name="Instances" Relationship="IntermediatesModel.FK_Instances_Events" FromRole="Event" ToRole="Instance" />
+        </EntityType>
+        <EntityType Name="Fund">
+          <Key>
+            <PropertyRef Name="FundId" />
+          </Key>
+          <Property Name="FundId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Donations" Relationship="Self.FK_Donations_Funds" FromRole="Funds" ToRole="Donations" />
+        </EntityType>
+        <EntityType Name="LockType">
+          <Key>
+            <PropertyRef Name="LockTypeId" />
+          </Key>
+          <Property Name="LockTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LockedSeats" Relationship="Self.FK_LockedSeats_LockTypes" FromRole="LockTypes" ToRole="LockedSeats" />
+        </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="MembershipId" />
+          </Key>
+          <Property Name="MembershipId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Period" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MembershipSubscriptions" Relationship="Self.FK_MembershipSubscriptions_Memberships" FromRole="Memberships" ToRole="MembershipSubscriptions" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SalesChannel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderFee" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentReference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customers" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="Donations" Relationship="Self.FK_Donations_Orders" FromRole="Orders" ToRole="Donations" />
+          <NavigationProperty Name="MembershipSubscriptions" Relationship="Self.FK_MembershipSubscriptions_Orders" FromRole="Orders" ToRole="MembershipSubscriptions" />
+          <NavigationProperty Name="Merchandises" Relationship="Self.FK_Merchandise_Orders" FromRole="Orders" ToRole="Merchandise" />
+          <NavigationProperty Name="OrderAttributes" Relationship="Self.FK_OrderAttributes_Orders" FromRole="Orders" ToRole="OrderAttributes" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK_Tickets_Orders" FromRole="Orders" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="PriceBand">
+          <Key>
+            <PropertyRef Name="PriceBandId" />
+          </Key>
+          <Property Name="PriceBandId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PriceListEntries" Relationship="Self.FK_PriceListEntries_PriceBands" FromRole="PriceBands" ToRole="PriceListEntries" />
+          <NavigationProperty Name="SeatingAreas" Relationship="Self.FK_SeatingAreas_PriceBands" FromRole="PriceBands" ToRole="SeatingAreas" />
+          <NavigationProperty Name="Seats" Relationship="Self.FK_Seats_PriceBands" FromRole="PriceBands" ToRole="Seats" />
+        </EntityType>
+        <EntityType Name="PriceList">
+          <Key>
+            <PropertyRef Name="PriceListId" />
+          </Key>
+          <Property Name="PriceListId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DefaultTicketTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PriceListEntries" Relationship="Self.FK_PriceListEntries_PriceLists" FromRole="PriceLists" ToRole="PriceListEntries" />
+          <NavigationProperty Name="Instances" Relationship="IntermediatesModel.FK_Instances_PriceLists" FromRole="PriceList" ToRole="Instance" />
+        </EntityType>
+        <EntityType Name="SeatingArea">
+          <Key>
+            <PropertyRef Name="SeatingAreaId" />
+            <PropertyRef Name="ParentAreaId" />
+          </Key>
+          <Property Name="SeatingAreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentAreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TopLevelAreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Capacity" Type="Int32" />
+          <Property Name="PriceBandId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PriceBand" Relationship="Self.FK_SeatingAreas_PriceBands" FromRole="SeatingAreas" ToRole="PriceBands" />
+        </EntityType>
+        <EntityType Name="Seat">
+          <Key>
+            <PropertyRef Name="SeatId" />
+          </Key>
+          <Property Name="SeatId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeatingAreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Row" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="PriceBandId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CoordinatesX" Type="Int32" Nullable="false" />
+          <Property Name="CoordinatesY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PriceBand" Relationship="Self.FK_Seats_PriceBands" FromRole="Seats" ToRole="PriceBands" />
+          <NavigationProperty Name="LockedSeats" Relationship="Self.FK_LockedSeats_Seats" FromRole="Seats" ToRole="LockedSeats" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK_Tickets_Seats" FromRole="Seats" ToRole="Tickets" />
+          <NavigationProperty Name="MaskedSeats" Relationship="IntermediatesModel.FK_MaskedSeats_Seats" FromRole="Seat" ToRole="MaskedSeat" />
+          <Property Name="ParentAreaId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StockItem">
+          <Key>
+            <PropertyRef Name="StockItemId" />
+          </Key>
+          <Property Name="StockItemId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumberInStock" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="UnitCost" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Merchandises" Relationship="Self.FK_Merchandise_StockItems" FromRole="StockItems" ToRole="Merchandise" />
+          <NavigationProperty Name="StockItemAttributes" Relationship="Self.FK_StockItemAttributes_StockItems" FromRole="StockItems" ToRole="StockItemAttributes" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TicketType">
+          <Key>
+            <PropertyRef Name="TicketTypeId" />
+          </Key>
+          <Property Name="TicketTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PriceListEntries" Relationship="Self.FK_PriceListEntries_TicketTypes" FromRole="TicketTypes" ToRole="PriceListEntries" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK_Tickets_TicketTypes" FromRole="TicketTypes" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="CustomerAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CustomerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerAttributes_Customers" FromRole="CustomerAttributes" ToRole="Customers" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="FundId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Fund" Relationship="Self.FK_Donations_Funds" FromRole="Donations" ToRole="Funds" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Donations_Orders" FromRole="Donations" ToRole="Orders" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="EventAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="EventId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_EventAttributes_Events" FromRole="EventAttributes" ToRole="Events" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="InstanceAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="InstanceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Instance" Relationship="IntermediatesModel.FK_InstanceAttributes_Instances" FromRole="InstanceAttribute" ToRole="Instance" />
+        </EntityType>
+        <EntityType Name="LockedSeat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="InstanceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeatingAreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SeatId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LockTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LockType" Relationship="Self.FK_LockedSeats_LockTypes" FromRole="LockedSeats" ToRole="LockTypes" />
+          <NavigationProperty Name="Seat" Relationship="Self.FK_LockedSeats_Seats" FromRole="LockedSeats" ToRole="Seats" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Instance" Relationship="IntermediatesModel.FK_LockedSeats_Instances" FromRole="LockedSeat" ToRole="Instance" />
+        </EntityType>
+        <EntityType Name="MembershipSubscription">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MembershipId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Membership" Relationship="Self.FK_MembershipSubscriptions_Memberships" FromRole="MembershipSubscriptions" ToRole="Memberships" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_MembershipSubscriptions_Orders" FromRole="MembershipSubscriptions" ToRole="Orders" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Merchandise">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="StockItemId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Commission" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Merchandise_Orders" FromRole="Merchandise" ToRole="Orders" />
+          <NavigationProperty Name="StockItem" Relationship="Self.FK_Merchandise_StockItems" FromRole="Merchandise" ToRole="StockItems" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="OrderAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderAttributes_Orders" FromRole="OrderAttributes" ToRole="Orders" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="PriceListEntry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="PriceListId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="PriceBandId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TicketTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PriceBand" Relationship="Self.FK_PriceListEntries_PriceBands" FromRole="PriceListEntries" ToRole="PriceBands" />
+          <NavigationProperty Name="PriceList" Relationship="Self.FK_PriceListEntries_PriceLists" FromRole="PriceListEntries" ToRole="PriceLists" />
+          <NavigationProperty Name="TicketType" Relationship="Self.FK_PriceListEntries_TicketTypes" FromRole="PriceListEntries" ToRole="TicketTypes" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="StockItemAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="StockItemId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="StockItem" Relationship="Self.FK_StockItemAttributes_StockItems" FromRole="StockItemAttributes" ToRole="StockItems" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="InstanceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeatingAreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SeatId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="Commission" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="IsReservation" Type="Boolean" Nullable="false" />
+          <Property Name="Printed" Type="Boolean" Nullable="false" />
+          <Property Name="TicketTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Tickets_Orders" FromRole="Tickets" ToRole="Orders" />
+          <NavigationProperty Name="Seat" Relationship="Self.FK_Tickets_Seats" FromRole="Tickets" ToRole="Seats" />
+          <NavigationProperty Name="TicketType" Relationship="Self.FK_Tickets_TicketTypes" FromRole="Tickets" ToRole="TicketTypes" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Instance" Relationship="IntermediatesModel.FK_Tickets_Instances" FromRole="Ticket" ToRole="Instance" />
+        </EntityType>
+        <Association Name="FK_CustomerAttributes_Customers">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerAttributes" Type="Self.CustomerAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerAttributes">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Customers">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventAttributes_Events">
+          <End Role="Events" Type="Self.Event" Multiplicity="1" />
+          <End Role="EventAttributes" Type="Self.EventAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="EventAttributes">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donations_Funds">
+          <End Role="Funds" Type="Self.Fund" Multiplicity="1" />
+          <End Role="Donations" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funds">
+              <PropertyRef Name="FundId" />
+            </Principal>
+            <Dependent Role="Donations">
+              <PropertyRef Name="FundId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LockedSeats_LockTypes">
+          <End Role="LockTypes" Type="Self.LockType" Multiplicity="1" />
+          <End Role="LockedSeats" Type="Self.LockedSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LockTypes">
+              <PropertyRef Name="LockTypeId" />
+            </Principal>
+            <Dependent Role="LockedSeats">
+              <PropertyRef Name="LockTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembershipSubscriptions_Memberships">
+          <End Role="Memberships" Type="Self.Membership" Multiplicity="1" />
+          <End Role="MembershipSubscriptions" Type="Self.MembershipSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Memberships">
+              <PropertyRef Name="MembershipId" />
+            </Principal>
+            <Dependent Role="MembershipSubscriptions">
+              <PropertyRef Name="MembershipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donations_Orders">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="Donations" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Donations">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MembershipSubscriptions_Orders">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="MembershipSubscriptions" Type="Self.MembershipSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="MembershipSubscriptions">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Merchandise_Orders">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="Merchandise" Type="Self.Merchandise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Merchandise">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderAttributes_Orders">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderAttributes" Type="Self.OrderAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderAttributes">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Orders">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PriceListEntries_PriceBands">
+          <End Role="PriceBands" Type="Self.PriceBand" Multiplicity="1" />
+          <End Role="PriceListEntries" Type="Self.PriceListEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceBands">
+              <PropertyRef Name="PriceBandId" />
+            </Principal>
+            <Dependent Role="PriceListEntries">
+              <PropertyRef Name="PriceBandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeatingAreas_PriceBands">
+          <End Role="PriceBands" Type="Self.PriceBand" Multiplicity="0..1" />
+          <End Role="SeatingAreas" Type="Self.SeatingArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceBands">
+              <PropertyRef Name="PriceBandId" />
+            </Principal>
+            <Dependent Role="SeatingAreas">
+              <PropertyRef Name="PriceBandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seats_PriceBands">
+          <End Role="PriceBands" Type="Self.PriceBand" Multiplicity="1" />
+          <End Role="Seats" Type="Self.Seat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceBands">
+              <PropertyRef Name="PriceBandId" />
+            </Principal>
+            <Dependent Role="Seats">
+              <PropertyRef Name="PriceBandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PriceListEntries_PriceLists">
+          <End Role="PriceLists" Type="Self.PriceList" Multiplicity="1" />
+          <End Role="PriceListEntries" Type="Self.PriceListEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceLists">
+              <PropertyRef Name="PriceListId" />
+            </Principal>
+            <Dependent Role="PriceListEntries">
+              <PropertyRef Name="PriceListId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LockedSeats_Seats">
+          <End Role="Seats" Type="Self.Seat" Multiplicity="0..1" />
+          <End Role="LockedSeats" Type="Self.LockedSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seats">
+              <PropertyRef Name="SeatId" />
+            </Principal>
+            <Dependent Role="LockedSeats">
+              <PropertyRef Name="SeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Seats">
+          <End Role="Seats" Type="Self.Seat" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seats">
+              <PropertyRef Name="SeatId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="SeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Merchandise_StockItems">
+          <End Role="StockItems" Type="Self.StockItem" Multiplicity="1" />
+          <End Role="Merchandise" Type="Self.Merchandise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockItems">
+              <PropertyRef Name="StockItemId" />
+            </Principal>
+            <Dependent Role="Merchandise">
+              <PropertyRef Name="StockItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockItemAttributes_StockItems">
+          <End Role="StockItems" Type="Self.StockItem" Multiplicity="1" />
+          <End Role="StockItemAttributes" Type="Self.StockItemAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockItems">
+              <PropertyRef Name="StockItemId" />
+            </Principal>
+            <Dependent Role="StockItemAttributes">
+              <PropertyRef Name="StockItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PriceListEntries_TicketTypes">
+          <End Role="TicketTypes" Type="Self.TicketType" Multiplicity="1" />
+          <End Role="PriceListEntries" Type="Self.PriceListEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketTypes">
+              <PropertyRef Name="TicketTypeId" />
+            </Principal>
+            <Dependent Role="PriceListEntries">
+              <PropertyRef Name="TicketTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketTypes">
+          <End Role="TicketTypes" Type="Self.TicketType" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketTypes">
+              <PropertyRef Name="TicketTypeId" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="TicketTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IntermediatesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Funds" EntityType="Self.Fund" />
+          <EntitySet Name="LockTypes" EntityType="Self.LockType" />
+          <EntitySet Name="Memberships" EntityType="Self.Membership" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="PriceBands" EntityType="Self.PriceBand" />
+          <EntitySet Name="PriceLists" EntityType="Self.PriceList" />
+          <EntitySet Name="SeatingAreas" EntityType="Self.SeatingArea" />
+          <EntitySet Name="Seats" EntityType="Self.Seat" />
+          <EntitySet Name="StockItems" EntityType="Self.StockItem" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TicketTypes" EntityType="Self.TicketType" />
+          <EntitySet Name="CustomerAttributes" EntityType="Self.CustomerAttribute" />
+          <EntitySet Name="Donations" EntityType="Self.Donation" />
+          <EntitySet Name="EventAttributes" EntityType="Self.EventAttribute" />
+          <EntitySet Name="InstanceAttributes" EntityType="Self.InstanceAttribute" />
+          <EntitySet Name="LockedSeats" EntityType="Self.LockedSeat" />
+          <EntitySet Name="MembershipSubscriptions" EntityType="Self.MembershipSubscription" />
+          <EntitySet Name="Merchandises" EntityType="Self.Merchandise" />
+          <EntitySet Name="OrderAttributes" EntityType="Self.OrderAttribute" />
+          <EntitySet Name="PriceListEntries" EntityType="Self.PriceListEntry" />
+          <EntitySet Name="StockItemAttributes" EntityType="Self.StockItemAttribute" />
+          <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+          <AssociationSet Name="FK_CustomerAttributes_Customers" Association="Self.FK_CustomerAttributes_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerAttributes" EntitySet="CustomerAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventAttributes_Events" Association="Self.FK_EventAttributes_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventAttributes" EntitySet="EventAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donations_Funds" Association="Self.FK_Donations_Funds">
+            <End Role="Funds" EntitySet="Funds" />
+            <End Role="Donations" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LockedSeats_LockTypes" Association="Self.FK_LockedSeats_LockTypes">
+            <End Role="LockTypes" EntitySet="LockTypes" />
+            <End Role="LockedSeats" EntitySet="LockedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembershipSubscriptions_Memberships" Association="Self.FK_MembershipSubscriptions_Memberships">
+            <End Role="Memberships" EntitySet="Memberships" />
+            <End Role="MembershipSubscriptions" EntitySet="MembershipSubscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donations_Orders" Association="Self.FK_Donations_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Donations" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MembershipSubscriptions_Orders" Association="Self.FK_MembershipSubscriptions_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="MembershipSubscriptions" EntitySet="MembershipSubscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Merchandise_Orders" Association="Self.FK_Merchandise_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Merchandise" EntitySet="Merchandises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderAttributes_Orders" Association="Self.FK_OrderAttributes_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderAttributes" EntitySet="OrderAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Orders" Association="Self.FK_Tickets_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PriceListEntries_PriceBands" Association="Self.FK_PriceListEntries_PriceBands">
+            <End Role="PriceBands" EntitySet="PriceBands" />
+            <End Role="PriceListEntries" EntitySet="PriceListEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeatingAreas_PriceBands" Association="Self.FK_SeatingAreas_PriceBands">
+            <End Role="PriceBands" EntitySet="PriceBands" />
+            <End Role="SeatingAreas" EntitySet="SeatingAreas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seats_PriceBands" Association="Self.FK_Seats_PriceBands">
+            <End Role="PriceBands" EntitySet="PriceBands" />
+            <End Role="Seats" EntitySet="Seats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PriceListEntries_PriceLists" Association="Self.FK_PriceListEntries_PriceLists">
+            <End Role="PriceLists" EntitySet="PriceLists" />
+            <End Role="PriceListEntries" EntitySet="PriceListEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LockedSeats_Seats" Association="Self.FK_LockedSeats_Seats">
+            <End Role="Seats" EntitySet="Seats" />
+            <End Role="LockedSeats" EntitySet="LockedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Seats" Association="Self.FK_Tickets_Seats">
+            <End Role="Seats" EntitySet="Seats" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Merchandise_StockItems" Association="Self.FK_Merchandise_StockItems">
+            <End Role="StockItems" EntitySet="StockItems" />
+            <End Role="Merchandise" EntitySet="Merchandises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockItemAttributes_StockItems" Association="Self.FK_StockItemAttributes_StockItems">
+            <End Role="StockItems" EntitySet="StockItems" />
+            <End Role="StockItemAttributes" EntitySet="StockItemAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PriceListEntries_TicketTypes" Association="Self.FK_PriceListEntries_TicketTypes">
+            <End Role="TicketTypes" EntitySet="TicketTypes" />
+            <End Role="PriceListEntries" EntitySet="PriceListEntries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketTypes" Association="Self.FK_Tickets_TicketTypes">
+            <End Role="TicketTypes" EntitySet="TicketTypes" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <EntitySet Name="Relationships" EntityType="IntermediatesModel.Relationship" />
+          <AssociationSet Name="FK_Relationships_Customers" Association="IntermediatesModel.FK_Relationships_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Relationship" EntitySet="Relationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relationships_Customers1" Association="IntermediatesModel.FK_Relationships_Customers1">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Relationship" EntitySet="Relationships" />
+          </AssociationSet>
+          <EntitySet Name="MaskedSeats" EntityType="IntermediatesModel.MaskedSeat" />
+          <AssociationSet Name="FK_MaskedSeats_Seats" Association="IntermediatesModel.FK_MaskedSeats_Seats">
+            <End Role="Seat" EntitySet="Seats" />
+            <End Role="MaskedSeat" EntitySet="MaskedSeats" />
+          </AssociationSet>
+          <EntitySet Name="Instances" EntityType="IntermediatesModel.Instance" />
+          <AssociationSet Name="FK_Instances_Events" Association="IntermediatesModel.FK_Instances_Events">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Instance" EntitySet="Instances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstanceAttributes_Instances" Association="IntermediatesModel.FK_InstanceAttributes_Instances">
+            <End Role="Instance" EntitySet="Instances" />
+            <End Role="InstanceAttribute" EntitySet="InstanceAttributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instances_PriceLists" Association="IntermediatesModel.FK_Instances_PriceLists">
+            <End Role="PriceList" EntitySet="PriceLists" />
+            <End Role="Instance" EntitySet="Instances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LockedSeats_Instances" Association="IntermediatesModel.FK_LockedSeats_Instances">
+            <End Role="Instance" EntitySet="Instances" />
+            <End Role="LockedSeat" EntitySet="LockedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaskedSeats_Instances" Association="IntermediatesModel.FK_MaskedSeats_Instances">
+            <End Role="Instance" EntitySet="Instances" />
+            <End Role="MaskedSeat" EntitySet="MaskedSeats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Instances" Association="IntermediatesModel.FK_Tickets_Instances">
+            <End Role="Instance" EntitySet="Instances" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <EntitySet Name="CustomerDataProtections" EntityType="IntermediatesModel.CustomerDataProtection" />
+          <EntitySet Name="DataProtectionStatements" EntityType="IntermediatesModel.DataProtectionStatement" />
+          <AssociationSet Name="FK_CustomerDataProtection_Customers" Association="IntermediatesModel.FK_CustomerDataProtection_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerDataProtection" EntitySet="CustomerDataProtections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerDataProtection_DataProtectionStatements" Association="IntermediatesModel.FK_CustomerDataProtection_DataProtectionStatements">
+            <End Role="DataProtectionStatement" EntitySet="DataProtectionStatements" />
+            <End Role="CustomerDataProtection" EntitySet="CustomerDataProtections" />
+          </AssociationSet>
+          <EntitySet Name="CustomerTags" EntityType="IntermediatesModel.CustomerTag" />
+          <EntitySet Name="Tags" EntityType="IntermediatesModel.Tag" />
+          <AssociationSet Name="FK_CustomerTags_Customers" Association="IntermediatesModel.FK_CustomerTags_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerTag" EntitySet="CustomerTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerTags_Tags" Association="IntermediatesModel.FK_CustomerTags_Tags">
+            <End Role="Tag" EntitySet="Tags" />
+            <End Role="CustomerTag" EntitySet="CustomerTags" />
+          </AssociationSet>
+          <EntitySet Name="Mailings" EntityType="IntermediatesModel.Mailing" />
+          <EntitySet Name="MailingsCustomers" EntityType="IntermediatesModel.MailingsCustomer" />
+          <AssociationSet Name="FK_MailingsCustomers_Customers" Association="IntermediatesModel.FK_MailingsCustomers_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="MailingsCustomer" EntitySet="MailingsCustomers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MailingsCustomers_Mailings" Association="IntermediatesModel.FK_MailingsCustomers_Mailings">
+            <End Role="Mailing" EntitySet="Mailings" />
+            <End Role="MailingsCustomer" EntitySet="MailingsCustomers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Relationship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeftCustomerId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RightCustomerId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="IntermediatesModel.FK_Relationships_Customers" FromRole="Relationship" ToRole="Customer" />
+          <NavigationProperty Name="Customer1" Relationship="IntermediatesModel.FK_Relationships_Customers1" FromRole="Relationship" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Relationships_Customers">
+          <End Type="IntermediatesModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="IntermediatesModel.Relationship" Role="Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="LeftCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relationships_Customers1">
+          <End Type="IntermediatesModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="IntermediatesModel.Relationship" Role="Relationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Relationship">
+              <PropertyRef Name="RightCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MaskedSeat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstanceId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SeatingAreaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SeatId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Seat" Relationship="IntermediatesModel.FK_MaskedSeats_Seats" FromRole="MaskedSeat" ToRole="Seat" />
+          <NavigationProperty Name="Instance" Relationship="IntermediatesModel.FK_MaskedSeats_Instances" FromRole="MaskedSeat" ToRole="Instance" />
+        </EntityType>
+        <Association Name="FK_MaskedSeats_Seats">
+          <End Type="IntermediatesModel.Seat" Role="Seat" Multiplicity="0..1" />
+          <End Type="IntermediatesModel.MaskedSeat" Role="MaskedSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seat">
+              <PropertyRef Name="SeatId" />
+            </Principal>
+            <Dependent Role="MaskedSeat">
+              <PropertyRef Name="SeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Instance">
+          <Key>
+            <PropertyRef Name="InstanceId" />
+          </Key>
+          <Property Name="InstanceId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EventId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SeatingPlanId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PriceListId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommissionStructureId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TicketDesignId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Event" Relationship="IntermediatesModel.FK_Instances_Events" FromRole="Instance" ToRole="Event" />
+          <NavigationProperty Name="InstanceAttributes" Relationship="IntermediatesModel.FK_InstanceAttributes_Instances" FromRole="Instance" ToRole="InstanceAttribute" />
+          <NavigationProperty Name="PriceList" Relationship="IntermediatesModel.FK_Instances_PriceLists" FromRole="Instance" ToRole="PriceList" />
+          <NavigationProperty Name="LockedSeats" Relationship="IntermediatesModel.FK_LockedSeats_Instances" FromRole="Instance" ToRole="LockedSeat" />
+          <NavigationProperty Name="MaskedSeats" Relationship="IntermediatesModel.FK_MaskedSeats_Instances" FromRole="Instance" ToRole="MaskedSeat" />
+          <NavigationProperty Name="Tickets" Relationship="IntermediatesModel.FK_Tickets_Instances" FromRole="Instance" ToRole="Ticket" />
+        </EntityType>
+        <Association Name="FK_Instances_Events">
+          <End Type="IntermediatesModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="IntermediatesModel.Instance" Role="Instance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="Instance">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstanceAttributes_Instances">
+          <End Type="IntermediatesModel.Instance" Role="Instance" Multiplicity="1" />
+          <End Type="IntermediatesModel.InstanceAttribute" Role="InstanceAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instance">
+              <PropertyRef Name="InstanceId" />
+            </Principal>
+            <Dependent Role="InstanceAttribute">
+              <PropertyRef Name="InstanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instances_PriceLists">
+          <End Type="IntermediatesModel.PriceList" Role="PriceList" Multiplicity="1" />
+          <End Type="IntermediatesModel.Instance" Role="Instance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceList">
+              <PropertyRef Name="PriceListId" />
+            </Principal>
+            <Dependent Role="Instance">
+              <PropertyRef Name="PriceListId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LockedSeats_Instances">
+          <End Type="IntermediatesModel.Instance" Role="Instance" Multiplicity="1" />
+          <End Type="IntermediatesModel.LockedSeat" Role="LockedSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instance">
+              <PropertyRef Name="InstanceId" />
+            </Principal>
+            <Dependent Role="LockedSeat">
+              <PropertyRef Name="InstanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaskedSeats_Instances">
+          <End Type="IntermediatesModel.Instance" Role="Instance" Multiplicity="1" />
+          <End Type="IntermediatesModel.MaskedSeat" Role="MaskedSeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instance">
+              <PropertyRef Name="InstanceId" />
+            </Principal>
+            <Dependent Role="MaskedSeat">
+              <PropertyRef Name="InstanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Instances">
+          <End Type="IntermediatesModel.Instance" Role="Instance" Multiplicity="1" />
+          <End Type="IntermediatesModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instance">
+              <PropertyRef Name="InstanceId" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="InstanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CustomerDataProtection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatementId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="IntermediatesModel.FK_CustomerDataProtection_Customers" FromRole="CustomerDataProtection" ToRole="Customer" />
+          <NavigationProperty Name="DataProtectionStatement" Relationship="IntermediatesModel.FK_CustomerDataProtection_DataProtectionStatements" FromRole="CustomerDataProtection" ToRole="DataProtectionStatement" />
+        </EntityType>
+        <EntityType Name="DataProtectionStatement">
+          <Key>
+            <PropertyRef Name="StatementId" />
+          </Key>
+          <Property Name="StatementId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerDataProtections" Relationship="IntermediatesModel.FK_CustomerDataProtection_DataProtectionStatements" FromRole="DataProtectionStatement" ToRole="CustomerDataProtection" />
+        </EntityType>
+        <Association Name="FK_CustomerDataProtection_Customers">
+          <End Type="IntermediatesModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="IntermediatesModel.CustomerDataProtection" Role="CustomerDataProtection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerDataProtection">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerDataProtection_DataProtectionStatements">
+          <End Type="IntermediatesModel.DataProtectionStatement" Role="DataProtectionStatement" Multiplicity="1" />
+          <End Type="IntermediatesModel.CustomerDataProtection" Role="CustomerDataProtection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataProtectionStatement">
+              <PropertyRef Name="StatementId" />
+            </Principal>
+            <Dependent Role="CustomerDataProtection">
+              <PropertyRef Name="StatementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CustomerTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TagId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="IntermediatesModel.FK_CustomerTags_Customers" FromRole="CustomerTag" ToRole="Customer" />
+          <NavigationProperty Name="Tag" Relationship="IntermediatesModel.FK_CustomerTags_Tags" FromRole="CustomerTag" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerTags" Relationship="IntermediatesModel.FK_CustomerTags_Tags" FromRole="Tag" ToRole="CustomerTag" />
+        </EntityType>
+        <Association Name="FK_CustomerTags_Customers">
+          <End Type="IntermediatesModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="IntermediatesModel.CustomerTag" Role="CustomerTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerTag">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerTags_Tags">
+          <End Type="IntermediatesModel.Tag" Role="Tag" Multiplicity="1" />
+          <End Type="IntermediatesModel.CustomerTag" Role="CustomerTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="TagId" />
+            </Principal>
+            <Dependent Role="CustomerTag">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Mailing">
+          <Key>
+            <PropertyRef Name="MailingId" />
+          </Key>
+          <Property Name="MailingId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SentAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="MailingsCustomers" Relationship="IntermediatesModel.FK_MailingsCustomers_Mailings" FromRole="Mailing" ToRole="MailingsCustomer" />
+        </EntityType>
+        <EntityType Name="MailingsCustomer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MailingId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="IntermediatesModel.FK_MailingsCustomers_Customers" FromRole="MailingsCustomer" ToRole="Customer" />
+          <NavigationProperty Name="Mailing" Relationship="IntermediatesModel.FK_MailingsCustomers_Mailings" FromRole="MailingsCustomer" ToRole="Mailing" />
+        </EntityType>
+        <Association Name="FK_MailingsCustomers_Customers">
+          <End Type="IntermediatesModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="IntermediatesModel.MailingsCustomer" Role="MailingsCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="MailingsCustomer">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MailingsCustomers_Mailings">
+          <End Type="IntermediatesModel.Mailing" Role="Mailing" Multiplicity="1" />
+          <End Type="IntermediatesModel.MailingsCustomer" Role="MailingsCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mailing">
+              <PropertyRef Name="MailingId" />
+            </Principal>
+            <Dependent Role="MailingsCustomer">
+              <PropertyRef Name="MailingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IntermediatesModelStoreContainer" CdmEntityContainer="IntermediatesEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="IntermediatesModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+                <ScalarProperty Name="AddressLine4" ColumnName="AddressLine4" />
+                <ScalarProperty Name="AddressLine5" ColumnName="AddressLine5" />
+                <ScalarProperty Name="PostTown" ColumnName="PostTown" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="IntermediatesModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Funds">
+            <EntityTypeMapping TypeName="IntermediatesModel.Fund">
+              <MappingFragment StoreEntitySet="Funds">
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LockTypes">
+            <EntityTypeMapping TypeName="IntermediatesModel.LockType">
+              <MappingFragment StoreEntitySet="LockTypes">
+                <ScalarProperty Name="LockTypeId" ColumnName="LockTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Memberships">
+            <EntityTypeMapping TypeName="IntermediatesModel.Membership">
+              <MappingFragment StoreEntitySet="Memberships">
+                <ScalarProperty Name="MembershipId" ColumnName="MembershipId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="IntermediatesModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="SalesChannel" ColumnName="SalesChannel" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="OrderFee" ColumnName="OrderFee" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="PaymentReference" ColumnName="PaymentReference" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceBands">
+            <EntityTypeMapping TypeName="IntermediatesModel.PriceBand">
+              <MappingFragment StoreEntitySet="PriceBands">
+                <ScalarProperty Name="PriceBandId" ColumnName="PriceBandId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceLists">
+            <EntityTypeMapping TypeName="IntermediatesModel.PriceList">
+              <MappingFragment StoreEntitySet="PriceLists">
+                <ScalarProperty Name="PriceListId" ColumnName="PriceListId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DefaultTicketTypeId" ColumnName="DefaultTicketTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeatingAreas">
+            <EntityTypeMapping TypeName="IntermediatesModel.SeatingArea">
+              <MappingFragment StoreEntitySet="SeatingAreas">
+                <ScalarProperty Name="SeatingAreaId" ColumnName="SeatingAreaId" />
+                <ScalarProperty Name="ParentAreaId" ColumnName="ParentAreaId" />
+                <ScalarProperty Name="TopLevelAreaId" ColumnName="TopLevelAreaId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="PriceBandId" ColumnName="PriceBandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seats">
+            <EntityTypeMapping TypeName="IntermediatesModel.Seat">
+              <MappingFragment StoreEntitySet="Seats">
+                <ScalarProperty Name="ParentAreaId" ColumnName="ParentAreaId" />
+                <ScalarProperty Name="SeatId" ColumnName="SeatId" />
+                <ScalarProperty Name="SeatingAreaId" ColumnName="SeatingAreaId" />
+                <ScalarProperty Name="Row" ColumnName="Row" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="PriceBandId" ColumnName="PriceBandId" />
+                <ScalarProperty Name="CoordinatesX" ColumnName="CoordinatesX" />
+                <ScalarProperty Name="CoordinatesY" ColumnName="CoordinatesY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockItems">
+            <EntityTypeMapping TypeName="IntermediatesModel.StockItem">
+              <MappingFragment StoreEntitySet="StockItems">
+                <ScalarProperty Name="StockItemId" ColumnName="StockItemId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="NumberInStock" ColumnName="NumberInStock" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IntermediatesModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketTypes">
+            <EntityTypeMapping TypeName="IntermediatesModel.TicketType">
+              <MappingFragment StoreEntitySet="TicketTypes">
+                <ScalarProperty Name="TicketTypeId" ColumnName="TicketTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerAttributes">
+            <EntityTypeMapping TypeName="IntermediatesModel.CustomerAttribute">
+              <MappingFragment StoreEntitySet="CustomerAttributes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donations">
+            <EntityTypeMapping TypeName="IntermediatesModel.Donation">
+              <MappingFragment StoreEntitySet="Donations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventAttributes">
+            <EntityTypeMapping TypeName="IntermediatesModel.EventAttribute">
+              <MappingFragment StoreEntitySet="EventAttributes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstanceAttributes">
+            <EntityTypeMapping TypeName="IntermediatesModel.InstanceAttribute">
+              <MappingFragment StoreEntitySet="InstanceAttributes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LockedSeats">
+            <EntityTypeMapping TypeName="IntermediatesModel.LockedSeat">
+              <MappingFragment StoreEntitySet="LockedSeats">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+                <ScalarProperty Name="SeatingAreaId" ColumnName="SeatingAreaId" />
+                <ScalarProperty Name="SeatId" ColumnName="SeatId" />
+                <ScalarProperty Name="LockTypeId" ColumnName="LockTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MembershipSubscriptions">
+            <EntityTypeMapping TypeName="IntermediatesModel.MembershipSubscription">
+              <MappingFragment StoreEntitySet="MembershipSubscriptions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MembershipId" ColumnName="MembershipId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Merchandises">
+            <EntityTypeMapping TypeName="IntermediatesModel.Merchandise">
+              <MappingFragment StoreEntitySet="Merchandise">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StockItemId" ColumnName="StockItemId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Commission" ColumnName="Commission" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderAttributes">
+            <EntityTypeMapping TypeName="IntermediatesModel.OrderAttribute">
+              <MappingFragment StoreEntitySet="OrderAttributes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceListEntries">
+            <EntityTypeMapping TypeName="IntermediatesModel.PriceListEntry">
+              <MappingFragment StoreEntitySet="PriceListEntries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PriceListId" ColumnName="PriceListId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PriceBandId" ColumnName="PriceBandId" />
+                <ScalarProperty Name="TicketTypeId" ColumnName="TicketTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockItemAttributes">
+            <EntityTypeMapping TypeName="IntermediatesModel.StockItemAttribute">
+              <MappingFragment StoreEntitySet="StockItemAttributes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StockItemId" ColumnName="StockItemId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="IntermediatesModel.Ticket">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+                <ScalarProperty Name="SeatingAreaId" ColumnName="SeatingAreaId" />
+                <ScalarProperty Name="SeatId" ColumnName="SeatId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Commission" ColumnName="Commission" />
+                <ScalarProperty Name="IsReservation" ColumnName="IsReservation" />
+                <ScalarProperty Name="Printed" ColumnName="Printed" />
+                <ScalarProperty Name="TicketTypeId" ColumnName="TicketTypeId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relationships">
+            <EntityTypeMapping TypeName="IntermediatesModel.Relationship">
+              <MappingFragment StoreEntitySet="Relationships">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="RightCustomerId" ColumnName="RightCustomerId" />
+                <ScalarProperty Name="LeftCustomerId" ColumnName="LeftCustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaskedSeats">
+            <EntityTypeMapping TypeName="IntermediatesModel.MaskedSeat">
+              <MappingFragment StoreEntitySet="MaskedSeats">
+                <ScalarProperty Name="SeatId" ColumnName="SeatId" />
+                <ScalarProperty Name="SeatingAreaId" ColumnName="SeatingAreaId" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instances">
+            <EntityTypeMapping TypeName="IntermediatesModel.Instance">
+              <MappingFragment StoreEntitySet="Instances">
+                <ScalarProperty Name="TicketDesignId" ColumnName="TicketDesignId" />
+                <ScalarProperty Name="CommissionStructureId" ColumnName="CommissionStructureId" />
+                <ScalarProperty Name="PriceListId" ColumnName="PriceListId" />
+                <ScalarProperty Name="SeatingPlanId" ColumnName="SeatingPlanId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerDataProtections">
+            <EntityTypeMapping TypeName="IntermediatesModel.CustomerDataProtection">
+              <MappingFragment StoreEntitySet="CustomerDataProtection">
+                <ScalarProperty Name="StatementId" ColumnName="StatementId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataProtectionStatements">
+            <EntityTypeMapping TypeName="IntermediatesModel.DataProtectionStatement">
+              <MappingFragment StoreEntitySet="DataProtectionStatements">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StatementId" ColumnName="StatementId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerTags">
+            <EntityTypeMapping TypeName="IntermediatesModel.CustomerTag">
+              <MappingFragment StoreEntitySet="CustomerTags">
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="IntermediatesModel.Tag">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mailings">
+            <EntityTypeMapping TypeName="IntermediatesModel.Mailing">
+              <MappingFragment StoreEntitySet="Mailings">
+                <ScalarProperty Name="SentAt" ColumnName="SentAt" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MailingId" ColumnName="MailingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailingsCustomers">
+            <EntityTypeMapping TypeName="IntermediatesModel.MailingsCustomer">
+              <MappingFragment StoreEntitySet="MailingsCustomers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="MailingId" ColumnName="MailingId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

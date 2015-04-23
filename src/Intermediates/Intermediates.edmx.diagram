@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4dca6dad08894ae5aee8b4c720a2c03f" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="IntermediatesModel.Customer" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.Event" Width="1.5" PointX="3.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.Fund" Width="1.5" PointX="3" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.LockType" Width="1.5" PointX="9" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.Membership" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.Order" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.PriceBand" Width="1.5" PointX="3.75" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.PriceList" Width="1.5" PointX="3.75" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.SeatingArea" Width="1.5" PointX="6" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.Seat" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.StockItem" Width="1.5" PointX="3" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.TicketType" Width="1.5" PointX="6" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.CustomerAttribute" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.Donation" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.EventAttribute" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.InstanceAttribute" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.LockedSeat" Width="1.5" PointX="11.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.MembershipSubscription" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.Merchandise" Width="1.5" PointX="5.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.OrderAttribute" Width="1.5" PointX="5.25" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.PriceListEntry" Width="1.5" PointX="8.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.StockItemAttribute" Width="1.5" PointX="5.25" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="IntermediatesModel.Ticket" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
+        <AssociationConnector Association="IntermediatesModel.FK_CustomerAttributes_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Orders_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_EventAttributes_Events" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Donations_Funds" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_LockedSeats_LockTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_MembershipSubscriptions_Memberships" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Donations_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_MembershipSubscriptions_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Merchandise_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_OrderAttributes_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Tickets_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_PriceListEntries_PriceBands" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_SeatingAreas_PriceBands" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Seats_PriceBands" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_PriceListEntries_PriceLists" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_LockedSeats_Seats" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Tickets_Seats" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Merchandise_StockItems" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_StockItemAttributes_StockItems" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_PriceListEntries_TicketTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="IntermediatesModel.FK_Tickets_TicketTypes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IntermediatesModel.Relationship" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="IntermediatesModel.FK_Relationships_Customers" />
+        <AssociationConnector Association="IntermediatesModel.FK_Relationships_Customers1" />
+        <EntityTypeShape EntityType="IntermediatesModel.MaskedSeat" Width="1.5" PointX="11.25" PointY="18.375" />
+        <AssociationConnector Association="IntermediatesModel.FK_MaskedSeats_Seats" />
+        <EntityTypeShape EntityType="IntermediatesModel.Instance" Width="1.5" PointX="9" PointY="20.75" />
+        <AssociationConnector Association="IntermediatesModel.FK_Instances_Events" />
+        <AssociationConnector Association="IntermediatesModel.FK_InstanceAttributes_Instances" />
+        <AssociationConnector Association="IntermediatesModel.FK_Instances_PriceLists" />
+        <AssociationConnector Association="IntermediatesModel.FK_LockedSeats_Instances" />
+        <AssociationConnector Association="IntermediatesModel.FK_MaskedSeats_Instances" />
+        <AssociationConnector Association="IntermediatesModel.FK_Tickets_Instances" />
+        <EntityTypeShape EntityType="IntermediatesModel.CustomerDataProtection" Width="1.5" PointX="9" PointY="9.125" />
+        <EntityTypeShape EntityType="IntermediatesModel.DataProtectionStatement" Width="1.5" PointX="6.75" PointY="2.375" />
+        <AssociationConnector Association="IntermediatesModel.FK_CustomerDataProtection_Customers" />
+        <AssociationConnector Association="IntermediatesModel.FK_CustomerDataProtection_DataProtectionStatements" />
+        <EntityTypeShape EntityType="IntermediatesModel.CustomerTag" Width="1.5" PointX="12" PointY="11.125" />
+        <EntityTypeShape EntityType="IntermediatesModel.Tag" Width="1.5" PointX="9.75" PointY="2.25" />
+        <AssociationConnector Association="IntermediatesModel.FK_CustomerTags_Customers" />
+        <AssociationConnector Association="IntermediatesModel.FK_CustomerTags_Tags" />
+        <EntityTypeShape EntityType="IntermediatesModel.Mailing" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="IntermediatesModel.MailingsCustomer" Width="1.5" PointX="3" PointY="11.125" />
+        <AssociationConnector Association="IntermediatesModel.FK_MailingsCustomers_Customers" />
+        <AssociationConnector Association="IntermediatesModel.FK_MailingsCustomers_Mailings" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
